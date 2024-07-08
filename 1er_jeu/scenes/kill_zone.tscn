@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://lbj5hypnnpp3"]
+
+[ext_resource type="Script" path="res://scenes/kill_zone.gd" id="1_bga5w"]
+[ext_resource type="AudioStream" uid="uid://gj4r8yswjr35" path="res://assets/sounds/Mario Death - Sound Effect (HD).mp3" id="2_0ricy"]
+
+[node name="killZone" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_bga5w")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.358
+one_shot = true
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_0ricy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

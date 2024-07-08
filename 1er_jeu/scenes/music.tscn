@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://rdn6g8eiyh1y"]
+
+[ext_resource type="AudioStream" uid="uid://bdnysp27bxbps" path="res://assets/music/Super Mario Bros. 2 Overworld Theme.mp3" id="1_va435"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_va435")
+autoplay = true
