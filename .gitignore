@@ -1,0 +1,37 @@
+# Godot .gitignore config
+# Aims to encompass the most commonly found files that we don't want committed
+# to Git, such as compilation output, IDE specific files, etc.
+
+# Ignore export files
+export_presets.cfg
+export_templates.cfg
+export.cfg
+exported_preset.cfg
+exported_template.cfg
+*.exe
+
+# Ignore compiled binaries
+*.import
+*.import.cfg
+*.import.resources
+*.import.xml
+*.imported
+*.imported.cfg
+*.imported.resources
+*.imported.xml
+
+# Ignore Godot project settings
+project.godot
+
+# Ignore editor-specific files
+.editorconfig
+*.sln
+*.suo
+*.csproj
+*.sdf
+*.suo
+*.userprefs
+*.mono
+*.mono_build
+*.vscode
+.vscode/
