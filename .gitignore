@@ -35,3 +35,4 @@ project.godot
 *.mono_build
 *.vscode
 .vscode/
+*.mp4
