@@ -1,0 +1,5 @@
+{
+  "dialog_1" : {"name": "Inconnu", "text": "Salut bg, on se la met ?"},
+  "dialog_2" : {"name": "Inconnu", "text": "Laisse moi me présenter, Je suis un méchant."},
+  "dialog_3" : {"name": "Ennemi menaçant", "text": "J'aime me battre."},
+}
