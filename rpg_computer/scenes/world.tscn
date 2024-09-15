@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpvcfcg6b7v8m"]
+[gd_scene load_steps=10 format=3 uid="uid://bpvcfcg6b7v8m"]
 
 [ext_resource type="Texture2D" uid="uid://b6wmmohpdmq6n" path="res://sprites/objects/objects.png" id="1_ia6ox"]
 [ext_resource type="Texture2D" uid="uid://b5uy54tq81sm1" path="res://sprites/tilesets/grass.png" id="2_qyksu"]
 [ext_resource type="Texture2D" uid="uid://cs7u60l4jto4k" path="res://sprites/tilesets/plains.png" id="3_d5wq2"]
 [ext_resource type="PackedScene" uid="uid://b7x27eeb5h703" path="res://scenes/player.tscn" id="4_jv6ie"]
+[ext_resource type="PackedScene" uid="uid://jrysy1u4iraj" path="res://scenes/enemy.tscn" id="5_nvrim"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdfko"]
 texture = ExtResource("1_ia6ox")
@@ -890,3 +891,6 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-393209, 655360, 7, -327673, 655360, 8, -393208, 720896, 7, -327672, 720896, 8, -524256, 0, 7, -458720, 0, 8, -524255, 65536, 7, -458719, 65536, 8, -524254, 131072, 7, -458718, 131072, 8, -131060, 0, 5, -65524, 0, 6, 12, 0, 7, 65548, 0, 8, -131059, 65536, 5, -65523, 65536, 6, 13, 65536, 7, 65549, 65536, 8, -131058, 131072, 5, -65522, 131072, 6, 14, 131072, 7, 65550, 131072, 8, 24, 393216, 7, 65560, 393216, 8, 25, 458752, 7, 65561, 458752, 8, -393213, 393216, 7, -327677, 393216, 8, -393212, 458752, 7, -327676, 458752, 8, 65537, 655360, 7, 131073, 655360, 8, 65538, 720896, 7, 131074, 720896, 8, -65507, 524288, 6, 29, 524288, 7, 65565, 524288, 8, -65506, 589824, 6, 30, 589824, 7, 65566, 589824, 8, 18, 524288, 6, 65554, 524288, 7, 131090, 524288, 8, 19, 589824, 6, 65555, 589824, 7, 131091, 589824, 8, -458729, 524288, 6, -393193, 524288, 7, -327657, 524288, 8, -458728, 589824, 6, -393192, 589824, 7, -327656, 589824, 8, -524283, 524288, 6, -458747, 524288, 7, -393211, 524288, 8, -524282, 589824, 6, -458746, 589824, 7, -393210, 589824, 8, 7, 524288, 6, 65543, 524288, 7, 131079, 524288, 8, 8, 589824, 6, 65544, 589824, 7, 131080, 589824, 8, 27, 524288, 6, 65563, 524288, 7, 131099, 524288, 8, 28, 589824, 6, 65564, 589824, 7, 131100, 589824, 8, 31, 524288, 6, 65567, 524288, 7, 131103, 524288, 8, 32, 589824, 6, 65568, 589824, 7, 131104, 589824, 8, 33, 0, 1, -327644, 0, 1, -458717, 0, 1, -393190, 0, 1, -458738, 327680, 0, -393201, 0, 0)
 
 [node name="player" parent="." instance=ExtResource("4_jv6ie")]
+
+[node name="enemy" parent="." instance=ExtResource("5_nvrim")]
+position = Vector2(154, -14)
