@@ -8,7 +8,7 @@ var can_take_damage = true
 
 func _physics_process(delta):
 	deal_with_damage()
-	
+	updateHealth()
 	if player_chase:
 		position += (player.position - position) / speed
 		$AnimatedSprite2D.play("walk")
@@ -54,3 +54,12 @@ func deal_with_damage():
 
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true # Replace with function body.
+
+func updateHealth():
+	var healthbar = $healthBar
+	healthbar.value = health
+	
+	if health >=100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true

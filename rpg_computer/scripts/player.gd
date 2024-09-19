@@ -8,6 +8,7 @@ var health = 100
 var player_alive = true
 var attack_ip = false
 
+
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
@@ -16,6 +17,7 @@ func _physics_process(delta):
 	enemy_attack()
 	attack()
 	current_camera()
+	updateHealth()
 	if health <=0:
 		player_alive = false #endscreen or respawn or menu...
 		print("dead")
@@ -160,3 +162,20 @@ func current_camera():
 		$Camera2D.enabled= false
 		$cliffSideCamera.enabled = true
 		print("test")
+
+func updateHealth():
+	var healthbar = $healthBar
+	healthbar.value = health
+	
+	if health >=100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
+func _on_regin_timer_timeout():
+	if health < 100:
+		health = health + 20
+		if health > 100:
+			health = 100
+	if health <= 0:
+		health = 0
