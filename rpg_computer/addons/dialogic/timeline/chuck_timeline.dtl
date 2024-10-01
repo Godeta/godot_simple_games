@@ -1,0 +1,12 @@
+join chuck left
+Salut
+Je suis Chuck
+join potion_character right
+J'ai entendu parler de ton aventure, tiens prends une potion ça pourra t'aider.
+leave potion_character
+Pourrais-tu me rendre un service ? Transmets le message au village que les loups ont quitté le bois.
+- Bien sûr !
+	Merci beaucoup.
+	[signal arg="exit_chuck"]
+- non désolé...
+	Mange tes morts !

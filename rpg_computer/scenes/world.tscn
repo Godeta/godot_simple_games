@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpvcfcg6b7v8m"]
+[gd_scene load_steps=14 format=3 uid="uid://bpvcfcg6b7v8m"]
 
 [ext_resource type="Texture2D" uid="uid://b6wmmohpdmq6n" path="res://sprites/objects/objects.png" id="1_ia6ox"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_vkkfm"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cs7u60l4jto4k" path="res://sprites/tilesets/plains.png" id="3_d5wq2"]
 [ext_resource type="PackedScene" uid="uid://b7x27eeb5h703" path="res://scenes/player.tscn" id="4_jv6ie"]
 [ext_resource type="PackedScene" uid="uid://jrysy1u4iraj" path="res://scenes/enemy.tscn" id="5_nvrim"]
+[ext_resource type="PackedScene" uid="uid://c840ldonsgb5e" path="res://scenes/chuck_npc.tscn" id="8_1xfcn"]
+[ext_resource type="Script" path="res://scenes/gptTest.gd" id="8_mx8u6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdfko"]
 texture = ExtResource("1_ia6ox")
@@ -912,6 +914,12 @@ polygon = PackedVector2Array(0, 0, 173, -2, 226, -1, 240, 0, 289, 1, 291, 22, 29
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffsideTransitionPoint"]
 position = Vector2(394, -143)
 shape = SubResource("RectangleShape2D_e7n7w")
+
+[node name="Chuck-npc" parent="." instance=ExtResource("8_1xfcn")]
+position = Vector2(355, -32)
+
+[node name="gptTest" type="Node2D" parent="."]
+script = ExtResource("8_mx8u6")
 
 [connection signal="body_entered" from="cliffsideTransitionPoint" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffsideTransitionPoint" to="." method="_on_cliffside_transition_point_body_exited"]
