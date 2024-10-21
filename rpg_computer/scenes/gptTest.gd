@@ -1,6 +1,6 @@
-extends Node2D
+extends Node
 
-var api_key : String = ""
+var api_key : String = "putYourKeyHere"
 var url : String = "https://api.openai.com/v1/chat/completions"
 var temperature : float = 0.5 #consistency
 var max_tokens : int = 1024 #max memory
@@ -8,6 +8,7 @@ var headers = ["Content-type: application/json", "Authorization: Bearer "+ api_k
 var model : String = "gpt-4o-2024-08-06" #"gpt-3.5-turbo"
 var messages = []
 var request : HTTPRequest
+var latest_message : String = ""  # Store the latest response message
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,15 +33,18 @@ func dialogue_request (player_dialogue):
 	var send_request = request.request(url, headers, HTTPClient.METHOD_POST, body)
 	if send_request != OK:
 		print("There was an error !")
-
+	
 func _on_request_completed (result, response_code, headers, body):
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	#print(response)
-	var message = response["choices"][0]["message"]["content"]
-	print(message)
+	latest_message = response["choices"][0]["message"]["content"]
+	print(latest_message)
 
+# Function to retrieve the latest answer
+func getAnswer() -> String:
+	return latest_message
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

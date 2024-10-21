@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://y48wvl7jt8w7"]
+[gd_scene load_steps=20 format=3 uid="uid://y48wvl7jt8w7"]
 
 [ext_resource type="Script" path="res://scripts/random_npc.gd" id="1_5fmyv"]
 [ext_resource type="Texture2D" uid="uid://cn6upwy0fgw0k" path="res://art/randomnpc-spritesheet.png" id="2_br0i5"]
-[ext_resource type="PackedScene" uid="uid://bcm00rksdm2uu" path="res://dialogue/dialogue.tscn" id="3_2oquu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nwykg"]
 atlas = ExtResource("2_br0i5")
@@ -156,9 +155,4 @@ shape = SubResource("CircleShape2D_iwcuv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chatDetectionZone"]
 shape = SubResource("CircleShape2D_m2ovi")
 
-[node name="Dialogue" parent="." instance=ExtResource("3_2oquu")]
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="chatDetectionZone" to="." method="_on_chat_detection_zone_body_entered"]
-[connection signal="body_exited" from="chatDetectionZone" to="." method="_on_chat_detection_zone_body_exited"]
-[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

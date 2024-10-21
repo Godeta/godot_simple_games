@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcm00rksdm2uu"]
+
+[ext_resource type="Texture2D" uid="uid://boi8rg516qadr" path="res://art/inventory-background.png" id="1_jkbyo"]
+[ext_resource type="Script" path="res://scenes/gptTest.gd" id="1_t4gtt"]
+[ext_resource type="Script" path="res://dialogue/dialoguePlayer.gd" id="1_w0fve"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_w0fve")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -62.0
+offset_top = -59.0
+offset_right = 62.0
+offset_bottom = -12.0
+texture = ExtResource("1_jkbyo")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 128.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 11.0
+offset_right = 287.0
+offset_bottom = 73.0
+scale = Vector2(0.4, 0.4)
+text = "Lorem"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = -61.0
+offset_top = -44.0
+offset_right = 61.0
+offset_bottom = -13.0
+
+[node name="GPT_call" type="Node" parent="."]
+script = ExtResource("1_t4gtt")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+offset_left = 67.0
+offset_top = -33.0
+offset_right = 191.0
+offset_bottom = 14.0
+texture = ExtResource("1_jkbyo")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 128.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect2"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 11.0
+offset_right = 287.0
+offset_bottom = 73.0
+scale = Vector2(0.4, 0.4)
+text = "Lorem"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Timer2" type="Timer" parent="."]
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

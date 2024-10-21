@@ -161,7 +161,7 @@ func current_camera():
 	elif global.current_scene =="cliffside":
 		$Camera2D.enabled= false
 		$cliffSideCamera.enabled = true
-		print("test")
+		#print("test")
 
 func updateHealth():
 	var healthbar = $healthBar
