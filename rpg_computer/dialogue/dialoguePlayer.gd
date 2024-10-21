@@ -7,6 +7,7 @@ signal dialogue_finished
 var dialogue = []
 var current_dialogue_id = 0
 var d_active = false
+var d_active2 = false
 
 func _ready():
 	$NinePatchRect.visible = false
@@ -33,7 +34,8 @@ func load_dialogue():
 func _input(event):
 	if !d_active:
 		return
-	if event.is_action_pressed("dialogic_default_action"):
+	if event.is_action_pressed("dialogic_default_action") and !d_active2:
+		$NinePatchRect2.visible = false
 		next_script()
 
 func next_script():
@@ -53,11 +55,8 @@ func show_input_field():
 	$LineEdit.grab_focus()  # Focus the LineEdit so user can type
 
 func _on_line_edit_text_changed(new_text):
+	d_active2 = true;
 	#print("User input:", new_text)
-	if(new_text.contains("\n")):
-		$LineEdit.visible = false  # Hide the input field after submission
-		$LineEdit.clear()  # Clear the text for future input
-
 
 func _on_line_edit_text_submitted(new_text):
 	$NinePatchRect2.visible = false;
@@ -84,4 +83,5 @@ func _on_timer_timeout():
 
 
 func _on_timer_2_timeout():
-	$NinePatchRect2.visible = false
+	#$NinePatchRect2.visible = false
+	d_active2 = false;

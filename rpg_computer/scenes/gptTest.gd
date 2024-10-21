@@ -1,6 +1,6 @@
 extends Node
 
-var api_key : String = "putYourKeyHere"
+var api_key : String = ""
 var url : String = "https://api.openai.com/v1/chat/completions"
 var temperature : float = 0.5 #consistency
 var max_tokens : int = 1024 #max memory
@@ -22,6 +22,10 @@ func dialogue_request (player_dialogue):
 		"role": "user",
 		"content": player_dialogue
 		}) #add the object with the user dialogue
+	messages.append({
+		"role": "system",
+		"content": "Always give short answers below 80 characters. You are a French monk living in an abbaye around the year 900 AD. You speak only in French, with the wisdom, humility, and faith of a monk from that era. Your speech is formal and respectful, reflecting the knowledge of religious texts, daily monastic life, and the values of devotion, prayer, and simplicity."
+		})
 		#turn all objects in json format
 	var body = JSON.new().stringify({
 		"messages": messages,

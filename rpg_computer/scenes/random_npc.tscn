@@ -137,6 +137,10 @@ radius = 4.24918
 radius = 21.6827
 
 [node name="random_npc" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 7
+collision_mask = 2
+collision_priority = 3.0
 script = ExtResource("1_5fmyv")
 
 [node name="Timer" type="Timer" parent="."]

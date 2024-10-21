@@ -21,12 +21,12 @@ func _ready():
 func _process(delta):
 	if player_in_area:
 		#print("Vas y PARLE")
-		if Input.is_action_just_pressed("e"):
+		if Input.is_action_just_pressed("dialogic_default_action"):
 			#print(" O K OK")
 			run_dialogue()
 	if current_state == 0 or current_state == 1:
 		$AnimatedSprite2D.play("idle")
-	elif current_state == 2 and !is_chatting:
+	elif current_state == 2 and !is_chatting:	
 		if dir.x == -1:
 			$AnimatedSprite2D.play("w-walk")
 		if dir.x == 1:
@@ -62,7 +62,7 @@ func move(delta):
 
 func _on_timer_timeout():
 	$Timer.wait_time = choose([0.5, 1, 1.5])
-	current_state = choose([IDLE, NEW_DIR, MOVE])
+	current_state = IDLE #choose([IDLE, NEW_DIR, MOVE])
 
 
 func _on_dialogue_dialogue_finished():
